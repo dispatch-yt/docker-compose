@@ -1,0 +1,15 @@
+services:
+  spring:
+    image: spring-1-jdk
+    ports:
+      - 8081:8080
+
+  react:
+    image: sagarzemoso/preadverse-action
+    ports:
+      - 3005:3005
+
+  json-server:
+    image: json-server
+    ports:
+      - 3004:3004

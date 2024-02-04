@@ -1,0 +1,26 @@
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: php-tomcat-server
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - 80:80
+    networks:
+      - lamp-network
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - lamp-network
+    ports:
+      - 3306:3306
+
+networks:
+  lamp-network:
